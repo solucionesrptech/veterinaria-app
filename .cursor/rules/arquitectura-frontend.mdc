@@ -1,0 +1,431 @@
+---
+description: Arquitectura obligatoria frontend Next.js para veterinaria-web
+alwaysApply: true
+---
+
+# Arquitectura frontend y organización visual (veterinaria-web)
+
+## Objetivo
+
+El frontend debe ser mantenible, escalable, predecible y alineado con la arquitectura del backend.
+
+No construir pantallas rápidas sin estructura.
+No mezclar UI con lógica de negocio.
+No duplicar contratos ni tipos sin necesidad.
+
+---
+
+## Principios obligatorios
+
+- Separar UI de lógica
+- Componentes pequeños y reutilizables
+- Organización por features/módulos
+- Consistencia visual
+- Accesibilidad básica
+- Formularios alineados con DTO/backend
+- Seguridad desde backend; el frontend no decide permisos reales
+- Clean Code + SOLID aplicado al frontend
+- Evitar acoplamiento innecesario
+
+---
+
+## Stack base
+
+- Next.js
+- Tailwind CSS
+- TypeScript
+
+Si se incorporan librerías adicionales, deben justificarse.
+No agregar dependencias innecesarias.
+
+---
+
+## Regla principal de frontend
+
+El frontend es una capa de presentación y experiencia de usuario.
+
+Puede:
+
+- renderizar UI
+- manejar estado de interfaz
+- validar UX básica de formularios
+- consumir servicios
+- mostrar estados y errores controlados
+
+No debe:
+
+- contener reglas de negocio críticas
+- decidir permisos reales
+- confiar en datos del cliente como seguros
+- reemplazar validaciones del backend
+- persistir sesiones o tokens de forma insegura: seguir el contrato de autenticación del backend (por ejemplo cookies httpOnly si el flujo lo define así)
+
+---
+
+## Estructura obligatoria
+
+Organizar por dominio/feature, no por caos horizontal.
+
+Estructura sugerida (equivalente: si el repo usa `app/` en la raíz sin carpeta `src/`, la ruta `app/` es la de App Router; si usa `src/`, entonces `src/app/`):
+
+app/
+components/
+  ui/
+  layout/
+  shared/
+features/
+  auth/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+  appointments/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+  patients/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+  medical-records/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+  products/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+  cart/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+  orders/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+  payments/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+  dashboard/
+    components/
+    hooks/
+    services/
+    types/
+    utils/
+lib/
+  api/
+  config/
+  constants/
+  helpers/
+hooks/
+types/
+
+---
+
+## Responsabilidad por carpeta
+
+### app/
+
+- rutas
+- layouts
+- pages
+- composición de pantallas
+- no meter lógica compleja aquí
+
+### components/ui/
+
+- componentes visuales reutilizables y genéricos
+- botones, inputs, modals, badges, tables, cards, tabs, etc.
+- sin lógica de negocio
+
+### components/layout/
+
+- navbar
+- sidebar
+- header
+- footer
+- wrappers visuales
+
+### components/shared/
+
+- componentes compartidos entre features
+- siempre que no rompan separación de dominio
+
+### features/<modulo>/components/
+
+- componentes específicos del módulo
+- ejemplo: appointment-form, patient-summary-card
+
+### features/<modulo>/hooks/
+
+- hooks del módulo
+- manejo de estado local del feature
+- composición de llamadas y comportamiento UI
+- no meter lógica de negocio crítica
+
+### features/<modulo>/services/
+
+- llamadas a API
+- adaptación de payloads
+- manejo centralizado de requests del módulo
+- no hacer fetch directo en componentes salvo casos muy justificados
+
+### features/<modulo>/types/
+
+- tipos del frontend asociados al módulo
+- evitar duplicar innecesariamente contratos del backend
+- si un tipo representa respuesta de API, nombrarlo claramente
+
+### features/<modulo>/utils/
+
+- helpers puntuales del módulo
+- no convertir esto en basurero genérico
+
+### lib/api/
+
+- cliente HTTP base
+- interceptores si aplica
+- configuración compartida para requests
+
+### lib/config/
+
+- configuración global del frontend
+
+### lib/constants/
+
+- constantes compartidas
+
+### lib/helpers/
+
+- utilidades realmente transversales
+- no acumular lógica de negocio
+
+---
+
+## Convención de nombres
+
+- usar nombres claros y consistentes
+- componentes React en PascalCase
+- hooks con prefijo `use`
+- servicios con sufijo `.service.ts`
+- tipos con sufijo descriptivo
+- no usar nombres ambiguos como `data.ts`, `helper.ts`, `utils.ts` sin contexto
+
+Ejemplos:
+
+- `AppointmentForm.tsx`
+- `AppointmentStatusBadge.tsx`
+- `useAppointmentsFilters.ts`
+- `appointments.service.ts`
+- `appointment.types.ts`
+
+---
+
+## Reglas de componentes
+
+- un componente debe tener una responsabilidad clara
+- evitar componentes gigantes
+- separar contenedor de presentación cuando haga falta
+- no meter lógica compleja de negocio en JSX
+- no hacer fetch, transformación compleja y render pesado todo junto en el mismo archivo
+- si un componente crece demasiado, dividirlo
+
+---
+
+## Reglas de formularios
+
+- el frontend puede hacer validación UX básica
+- la validación real vive en backend
+- los formularios deben alinearse con DTOs del backend
+- no inventar campos que backend no soporte
+- mostrar errores de manera clara
+- manejar loading, success y error states
+- sanitización mínima solo para experiencia de usuario; no sustituye validación backend
+
+---
+
+## Reglas de consumo de API
+
+- centralizar llamadas por feature en `services/`
+- no repetir endpoints en múltiples archivos
+- no hacer fetch disperso por toda la app
+- manejar errores de forma controlada
+- mantener consistencia en payloads y respuestas
+- respetar contratos reales del backend
+
+---
+
+## Reglas de estado
+
+- usar estado local para comportamiento local
+- elevar estado solo cuando realmente se comparte
+- no crear complejidad global innecesaria
+- evitar sobreingeniería con stores si no es necesario
+- si se incorpora manejo global, debe justificarse por necesidad real
+
+---
+
+## Roles y permisos en frontend
+
+El frontend puede:
+
+- ocultar o mostrar opciones según rol
+- adaptar navegación y experiencia
+
+El frontend NO puede:
+
+- asumir permisos reales
+- reemplazar validaciones del backend
+
+Toda acción sensible debe ser validada en backend aunque la UI la oculte.
+
+---
+
+## UX obligatoria por rol
+
+Debe existir una experiencia diferenciada por rol:
+
+### Cliente
+
+- reservar hora
+- ver sus mascotas
+- revisar historial permitido
+- comprar medicamentos/productos
+- pagar
+- ver estado de reserva/pedido
+
+### Recepcionista
+
+- crear reservas
+- confirmar llegada del paciente
+- gestionar agenda
+- registrar pagos manuales si aplica
+- apoyo operativo
+
+### Veterinario
+
+- ver agenda asignada
+- revisar ficha del paciente
+- registrar consulta
+- diagnóstico, tratamiento, receta, observaciones
+
+### Administrador
+
+- gestión global
+- usuarios/roles
+- inventario
+- reportes futuros
+- control general del sistema
+
+---
+
+## Diseño visual obligatorio
+
+La aplicación debe tener una línea visual consistente.
+
+Criterios:
+
+- estilo profesional, cálido y confiable
+- enfoque pet-friendly pero no infantil
+- buena legibilidad
+- jerarquía visual clara
+- diseño limpio
+- colores consistentes
+- espaciado uniforme
+- feedback visual claro en acciones críticas
+
+No mezclar estilos arbitrarios entre pantallas.
+
+### Estilos técnicos (obligatorio)
+
+- **Prohibido** usar `style={{ ... }}` (estilos en línea) en componentes.
+- **Prohibido** `!important` en CSS; si hace falta especificidad, corregir orden de capas, componentes o tokens de diseño (Tailwind / CSS del proyecto).
+- Usar **Tailwind** y CSS del proyecto de forma coherente con el sistema de diseño.
+
+---
+
+## Sistema de diseño
+
+Debe mantenerse consistencia en:
+
+- colores
+- tipografía
+- espaciados
+- bordes
+- sombras
+- estados de botones
+- inputs
+- tablas
+- badges
+- alerts
+- modals
+- cards
+
+Preferir reutilización antes que duplicación visual.
+
+---
+
+## Accesibilidad mínima
+
+- labels correctos
+- botones semánticos
+- inputs accesibles
+- foco visible
+- contraste suficiente
+- estados deshabilitado/loading claros
+
+---
+
+## Qué no hacer
+
+- no mezclar lógica de negocio fuerte en componentes
+- no hacer fetch directo por todas partes
+- no crear componentes gigantes
+- no duplicar tipos sin necesidad
+- no dejar archivos regados
+- no romper consistencia visual
+- no crear helpers genéricos sin propósito claro
+- no inventar contratos distintos al backend
+- no esconder errores importantes
+- no asumir seguridad desde frontend
+
+---
+
+## Calidad
+
+- componentes pequeños
+- funciones claras
+- nombres consistentes
+- evitar duplicación
+- mantener legibilidad
+- cada feature debe ser fácil de ubicar y mantener
+
+---
+
+## Regla final
+
+Si una implementación frontend:
+
+- mezcla UI con lógica excesiva,
+- rompe consistencia visual,
+- desordena carpetas,
+- duplica contratos,
+- o intenta mover reglas del backend al frontend,
+
+debe rechazarse y rediseñarse antes de continuar.

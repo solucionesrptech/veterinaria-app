@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --vet-primary: #4a7c6c;
+  --vet-primary-hover: #3d6a5c;
+  --vet-soft: #eef4f1;
+  --vet-muted: #dce8e2;
+  --vet-border: #c5d9ce;
+  --vet-deep: #14221c;
+  --vet-warm: #f5f2eb;
 }
 
 @theme inline {
@@ -10,17 +17,20 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: var(--font-display-serif), "Cormorant Garamond", ui-serif, Georgia, serif;
+  --color-vet-primary: var(--vet-primary);
+  --color-vet-primary-hover: var(--vet-primary-hover);
+  --color-vet-soft: var(--vet-soft);
+  --color-vet-muted: var(--vet-muted);
+  --color-vet-border: var(--vet-border);
+  --color-vet-deep: var(--vet-deep);
+  --color-vet-warm: var(--vet-warm);
+  --shadow-card: 0 1px 2px rgb(28 25 23 / 0.04), 0 22px 48px rgb(28 25 23 / 0.06);
+  --shadow-card-hover: 0 4px 8px rgb(28 25 23 / 0.06), 0 28px 56px rgb(28 25 23 / 0.08);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }

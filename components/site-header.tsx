@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function IconPaw(props: { className?: string }) {
@@ -50,48 +51,60 @@ export function SiteHeader() {
             </span>
           </span>
         </a>
-        <nav className="hidden items-center gap-10 text-sm font-medium md:flex" aria-label="Principal">
-          <a
-            href="#servicios"
+        <div className="flex shrink-0 items-center gap-6 md:gap-8">
+          <nav className="hidden items-center gap-10 text-sm font-medium md:flex" aria-label="Principal">
+            <a
+              href="#servicios"
+              className={
+                elevated
+                  ? "text-stone-600 transition-colors hover:text-vet-primary"
+                  : "text-white/85 transition-colors hover:text-white"
+              }
+            >
+              Servicios
+            </a>
+            <a
+              href="#destacados"
+              className={
+                elevated
+                  ? "text-stone-600 transition-colors hover:text-vet-primary"
+                  : "text-white/85 transition-colors hover:text-white"
+              }
+            >
+              Farmacia
+            </a>
+            <a
+              href="#cita"
+              className={
+                elevated
+                  ? "text-stone-600 transition-colors hover:text-vet-primary"
+                  : "text-white/85 transition-colors hover:text-white"
+              }
+            >
+              Citas
+            </a>
+          </nav>
+          <Link
+            href="/login"
             className={
               elevated
-                ? "text-stone-600 transition-colors hover:text-vet-primary"
-                : "text-white/85 transition-colors hover:text-white"
+                ? "text-sm font-semibold text-vet-primary underline-offset-4 transition-colors hover:underline"
+                : "text-sm font-semibold text-white/90 underline-offset-4 transition-colors hover:text-white hover:underline"
             }
           >
-            Servicios
-          </a>
-          <a
-            href="#destacados"
-            className={
-              elevated
-                ? "text-stone-600 transition-colors hover:text-vet-primary"
-                : "text-white/85 transition-colors hover:text-white"
-            }
-          >
-            Farmacia
-          </a>
+            Iniciar sesión
+          </Link>
           <a
             href="#cita"
             className={
               elevated
-                ? "text-stone-600 transition-colors hover:text-vet-primary"
-                : "text-white/85 transition-colors hover:text-white"
+                ? "inline-flex shrink-0 items-center justify-center rounded-full bg-vet-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-vet-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vet-primary"
+                : "inline-flex shrink-0 items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-vet-deep shadow-md shadow-stone-950/20 transition-colors hover:bg-stone-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             }
           >
-            Citas
+            Reservar cita
           </a>
-        </nav>
-        <a
-          href="#cita"
-          className={
-            elevated
-              ? "inline-flex shrink-0 items-center justify-center rounded-full bg-vet-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-vet-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vet-primary"
-              : "inline-flex shrink-0 items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-vet-deep shadow-md shadow-stone-950/20 transition-colors hover:bg-stone-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          }
-        >
-          Reservar cita
-        </a>
+        </div>
       </div>
     </header>
   );

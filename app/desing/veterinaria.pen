@@ -1,379 +1,528 @@
 {
-  "version": "2.10",
+  "version": "2.11",
   "children": [
     {
-      "id": "landing-veterinaria",
       "type": "frame",
+      "id": "landing-veterinaria",
+      "x": 1550,
+      "y": -66,
       "name": "Landing Veterinaria",
-      "x": 0,
-      "y": 0,
+      "clip": true,
       "width": 1440,
-      "height": 2680,
+      "height": 2972,
       "fill": "#f8faf8",
       "layout": "vertical",
-      "gap": 0,
-      "clip": true,
       "children": [
         {
-          "id": "hero",
           "type": "frame",
-          "name": "Hero",
+          "id": "navbar-landing",
+          "name": "Navbar",
           "width": "fill_container",
-          "height": 520,
-          "fill": "#2f5f4f",
-          "layout": "horizontal",
-          "padding": [56, 72, 56, 72],
-          "gap": 40,
+          "height": 72,
+          "fill": "#f8faf8",
+          "stroke": {
+            "thickness": 1,
+            "fill": "#d8e8dc"
+          },
+          "padding": [
+            18,
+            72
+          ],
           "justifyContent": "space_between",
           "alignItems": "center",
           "children": [
             {
-              "id": "hero-copy",
               "type": "frame",
-              "width": 620,
-              "height": 400,
-              "layout": "vertical",
-              "gap": 20,
-              "justifyContent": "center",
-              "alignItems": "start",
+              "id": "navbar-logo-group",
+              "gap": 12,
+              "alignItems": "center",
               "children": [
                 {
-                  "id": "hero-title",
-                  "type": "text",
-                  "content": "Salud y bienestar para tu mascota",
-                  "fontSize": 44,
-                  "fontWeight": "600",
-                  "lineHeight": 1.12,
-                  "fill": "#ffffff",
-                  "textGrowth": "fixed-width",
-                  "width": 560
-                },
-                {
-                  "id": "hero-body",
-                  "type": "text",
-                  "content": "Medicina preventiva, urgencias 24h, cirugía y nutrición guiada por un equipo que ama los animales.",
-                  "fontSize": 17,
-                  "lineHeight": 1.55,
-                  "fill": "#e8f5e9",
-                  "textGrowth": "fixed-width",
-                  "width": 520
-                },
-                {
-                  "id": "hero-actions",
                   "type": "frame",
-                  "width": 520,
-                  "height": 52,
-                  "layout": "horizontal",
-                  "gap": 16,
-                  "padding": [8, 0, 0, 0],
+                  "id": "navbar-logo-mark",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "#ecfdf5",
+                  "cornerRadius": 14,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c5d9ce"
+                  },
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
                   "children": [
                     {
-                      "id": "btn-primary",
-                      "type": "frame",
-                      "width": 168,
-                      "height": 48,
-                      "cornerRadius": 999,
-                      "fill": "#ffffff",
-                      "layout": "vertical",
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "id": "btn-primary-t",
-                          "type": "text",
-                          "content": "Agendar cita",
-                          "fontSize": 15,
-                          "fontWeight": "600",
-                          "fill": "#1b4332",
-                          "textGrowth": "auto"
-                        }
-                      ]
+                      "type": "text",
+                      "id": "navbar-logo-mark-text",
+                      "fill": "#2f5f4f",
+                      "content": "A",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "navbar-brand-text",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "navbar-brand-tag",
+                      "fill": "#2f5f4f",
+                      "content": "Medicina de precisión",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "600"
                     },
                     {
-                      "id": "btn-secondary",
-                      "type": "frame",
-                      "width": 188,
-                      "height": 48,
-                      "cornerRadius": 999,
-                      "stroke": { "thickness": 2, "fill": "#ffffffaa" },
-                      "layout": "vertical",
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "id": "btn-secondary-t",
-                          "type": "text",
-                          "content": "Nuestros servicios",
-                          "fontSize": 15,
-                          "fontWeight": "500",
-                          "fill": "#ffffff",
-                          "textGrowth": "auto"
-                        }
-                      ]
+                      "type": "text",
+                      "id": "navbar-brand-name",
+                      "fill": "#1b4332",
+                      "content": "Arcadia Veterinaria",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
                     }
                   ]
                 }
               ]
             },
             {
-              "id": "hero-photo",
               "type": "frame",
-              "name": "Foto clínica",
-              "width": 560,
-              "height": 380,
-              "cornerRadius": 20,
-              "fill": "#1a3d2e",
-              "clip": true,
-              "stroke": { "thickness": 1, "fill": "#ffffff33" },
+              "id": "navbar-cta",
+              "width": 158,
+              "height": 44,
+              "fill": "#2f5f4f",
+              "cornerRadius": 999,
               "layout": "vertical",
               "justifyContent": "center",
               "alignItems": "center",
               "children": [
                 {
-                  "id": "hero-photo-hint",
                   "type": "text",
-                  "content": "Imagen: veterinario / consulta",
+                  "id": "navbar-cta-text",
+                  "fill": "#ffffff",
+                  "content": "Reservar cita",
+                  "fontFamily": "Inter",
                   "fontSize": 14,
-                  "fill": "#a8c5b8",
-                  "textGrowth": "auto"
+                  "fontWeight": "600"
                 }
               ]
             }
           ]
         },
         {
-          "id": "section-servicios",
           "type": "frame",
+          "id": "hero",
+          "name": "Hero",
+          "width": "fill_container",
+          "height": 520,
+          "fill": "#2f5f4f",
+          "gap": 40,
+          "padding": [
+            56,
+            72
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "hero-copy",
+              "width": 620,
+              "height": 400,
+              "layout": "vertical",
+              "gap": 20,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "hero-title",
+                  "fill": "#ffffff",
+                  "textGrowth": "fixed-width",
+                  "width": 560,
+                  "content": "Salud y bienestar para tu mascota",
+                  "lineHeight": 1.12,
+                  "fontFamily": "Inter",
+                  "fontSize": 44,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "hero-body",
+                  "fill": "#e8f5e9",
+                  "textGrowth": "fixed-width",
+                  "width": 520,
+                  "content": "Medicina preventiva, urgencias 24h, cirugía y nutrición guiada por un equipo que ama los animales.",
+                  "lineHeight": 1.55,
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "hero-actions",
+                  "width": 520,
+                  "height": 52,
+                  "gap": 16,
+                  "padding": [
+                    8,
+                    0,
+                    0,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "btn-primary",
+                      "width": 168,
+                      "height": 48,
+                      "fill": "#ffffff",
+                      "cornerRadius": 999,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "btn-primary-t",
+                          "fill": "#1b4332",
+                          "content": "Agendar cita",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "btn-secondary",
+                      "width": 188,
+                      "height": 48,
+                      "cornerRadius": 999,
+                      "stroke": {
+                        "thickness": 2,
+                        "fill": "#ffffffaa"
+                      },
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "btn-secondary-t",
+                          "fill": "#ffffff",
+                          "content": "Nuestros servicios",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "hero-photo",
+              "name": "Foto clínica",
+              "clip": true,
+              "width": 560,
+              "height": 380,
+              "fill": "#1a3d2e",
+              "cornerRadius": 20,
+              "stroke": {
+                "thickness": 1,
+                "fill": "#ffffff33"
+              },
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "hero-photo-hint",
+                  "fill": "#a8c5b8",
+                  "content": "Imagen: veterinario / consulta",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "section-servicios",
           "name": "Servicios",
           "width": "fill_container",
           "height": 920,
           "fill": "#f8faf8",
           "layout": "vertical",
-          "padding": [64, 72, 48, 72],
           "gap": 36,
+          "padding": [
+            64,
+            72,
+            48,
+            72
+          ],
           "children": [
             {
-              "id": "servicios-title",
               "type": "text",
-              "content": "Servicios",
-              "fontSize": 36,
-              "fontWeight": "600",
+              "id": "servicios-title",
               "fill": "#1b4332",
-              "textGrowth": "auto"
+              "content": "Servicios",
+              "fontFamily": "Inter",
+              "fontSize": 36,
+              "fontWeight": "600"
             },
             {
-              "id": "servicios-grid-1",
               "type": "frame",
+              "id": "servicios-grid-1",
               "width": "fill_container",
               "height": 200,
-              "layout": "horizontal",
               "gap": 20,
               "children": [
                 {
+                  "type": "frame",
                   "id": "c1",
-                  "type": "frame",
                   "width": 440,
                   "height": 200,
-                  "cornerRadius": 16,
                   "fill": "#ecfdf5",
-                  "stroke": { "thickness": 1, "fill": "#c8e6d5" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c8e6d5"
+                  },
                   "layout": "vertical",
-                  "padding": [24, 24, 24, 24],
                   "gap": 8,
+                  "padding": 24,
                   "children": [
                     {
+                      "type": "text",
                       "id": "c1t",
-                      "type": "text",
+                      "fill": "#1b4332",
                       "content": "Consulta general",
+                      "fontFamily": "Inter",
                       "fontSize": 18,
-                      "fontWeight": "600",
-                      "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "fontWeight": "600"
                     },
                     {
+                      "type": "text",
                       "id": "c1d",
-                      "type": "text",
+                      "fill": "#4a6356",
+                      "textGrowth": "fixed-width",
+                      "width": 380,
                       "content": "Revisiones, vacunas y seguimiento personalizado.",
-                      "fontSize": 14,
                       "lineHeight": 1.5,
-                      "fill": "#4a6356",
-                      "textGrowth": "fixed-width",
-                      "width": 380
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
                 {
+                  "type": "frame",
                   "id": "c2",
-                  "type": "frame",
                   "width": 440,
                   "height": 200,
-                  "cornerRadius": 16,
                   "fill": "#ecfdf5",
-                  "stroke": { "thickness": 1, "fill": "#c8e6d5" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c8e6d5"
+                  },
                   "layout": "vertical",
-                  "padding": [24, 24, 24, 24],
                   "gap": 8,
+                  "padding": 24,
                   "children": [
                     {
-                      "id": "c2t",
                       "type": "text",
-                      "content": "Urgencias",
-                      "fontSize": 18,
-                      "fontWeight": "600",
+                      "id": "c2t",
                       "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "content": "Urgencias",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
                     },
                     {
-                      "id": "c2d",
                       "type": "text",
-                      "content": "Atención prioritaria y estabilización.",
-                      "fontSize": 14,
-                      "lineHeight": 1.5,
+                      "id": "c2d",
                       "fill": "#4a6356",
                       "textGrowth": "fixed-width",
-                      "width": 380
+                      "width": 380,
+                      "content": "Atención prioritaria y estabilización.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
                 {
-                  "id": "c3",
                   "type": "frame",
+                  "id": "c3",
                   "width": 440,
                   "height": 200,
-                  "cornerRadius": 16,
                   "fill": "#ecfdf5",
-                  "stroke": { "thickness": 1, "fill": "#c8e6d5" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c8e6d5"
+                  },
                   "layout": "vertical",
-                  "padding": [24, 24, 24, 24],
                   "gap": 8,
+                  "padding": 24,
                   "children": [
                     {
-                      "id": "c3t",
                       "type": "text",
-                      "content": "Cirugía",
-                      "fontSize": 18,
-                      "fontWeight": "600",
+                      "id": "c3t",
                       "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "content": "Cirugía",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
                     },
                     {
-                      "id": "c3d",
                       "type": "text",
-                      "content": "Quirófano equipado y monitorización.",
-                      "fontSize": 14,
-                      "lineHeight": 1.5,
+                      "id": "c3d",
                       "fill": "#4a6356",
                       "textGrowth": "fixed-width",
-                      "width": 380
+                      "width": 380,
+                      "content": "Quirófano equipado y monitorización.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
               ]
             },
             {
-              "id": "servicios-grid-2",
               "type": "frame",
+              "id": "servicios-grid-2",
               "width": "fill_container",
               "height": 200,
-              "layout": "horizontal",
               "gap": 20,
               "children": [
                 {
+                  "type": "frame",
                   "id": "c4",
-                  "type": "frame",
                   "width": 440,
                   "height": 200,
-                  "cornerRadius": 16,
                   "fill": "#ecfdf5",
-                  "stroke": { "thickness": 1, "fill": "#c8e6d5" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c8e6d5"
+                  },
                   "layout": "vertical",
-                  "padding": [24, 24, 24, 24],
                   "gap": 8,
+                  "padding": 24,
                   "children": [
                     {
+                      "type": "text",
                       "id": "c4t",
-                      "type": "text",
+                      "fill": "#1b4332",
                       "content": "Laboratorio",
+                      "fontFamily": "Inter",
                       "fontSize": 18,
-                      "fontWeight": "600",
-                      "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "fontWeight": "600"
                     },
                     {
+                      "type": "text",
                       "id": "c4d",
-                      "type": "text",
+                      "fill": "#4a6356",
+                      "textGrowth": "fixed-width",
+                      "width": 380,
                       "content": "Analíticas y pruebas rápidas in house.",
-                      "fontSize": 14,
                       "lineHeight": 1.5,
-                      "fill": "#4a6356",
-                      "textGrowth": "fixed-width",
-                      "width": 380
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
                 {
+                  "type": "frame",
                   "id": "c5",
-                  "type": "frame",
                   "width": 440,
                   "height": 200,
-                  "cornerRadius": 16,
                   "fill": "#ecfdf5",
-                  "stroke": { "thickness": 1, "fill": "#c8e6d5" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c8e6d5"
+                  },
                   "layout": "vertical",
-                  "padding": [24, 24, 24, 24],
                   "gap": 8,
+                  "padding": 24,
                   "children": [
                     {
-                      "id": "c5t",
                       "type": "text",
-                      "content": "Imagen",
-                      "fontSize": 18,
-                      "fontWeight": "600",
+                      "id": "c5t",
                       "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "content": "Imagen",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
                     },
                     {
-                      "id": "c5d",
                       "type": "text",
-                      "content": "Radiología y ecografía veterinaria.",
-                      "fontSize": 14,
-                      "lineHeight": 1.5,
+                      "id": "c5d",
                       "fill": "#4a6356",
                       "textGrowth": "fixed-width",
-                      "width": 380
+                      "width": 380,
+                      "content": "Radiología y ecografía veterinaria.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
                 {
-                  "id": "c6",
                   "type": "frame",
+                  "id": "c6",
                   "width": 440,
                   "height": 200,
-                  "cornerRadius": 16,
                   "fill": "#ecfdf5",
-                  "stroke": { "thickness": 1, "fill": "#c8e6d5" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c8e6d5"
+                  },
                   "layout": "vertical",
-                  "padding": [24, 24, 24, 24],
                   "gap": 8,
+                  "padding": 24,
                   "children": [
                     {
-                      "id": "c6t",
                       "type": "text",
-                      "content": "Peluquería",
-                      "fontSize": 18,
-                      "fontWeight": "600",
+                      "id": "c6t",
                       "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "content": "Peluquería",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "600"
                     },
                     {
-                      "id": "c6d",
                       "type": "text",
-                      "content": "Higiene, corte y cuidado del pelaje.",
-                      "fontSize": 14,
-                      "lineHeight": 1.5,
+                      "id": "c6d",
                       "fill": "#4a6356",
                       "textGrowth": "fixed-width",
-                      "width": 380
+                      "width": 380,
+                      "content": "Higiene, corte y cuidado del pelaje.",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -382,143 +531,161 @@
           ]
         },
         {
-          "id": "section-productos",
           "type": "frame",
+          "id": "section-productos",
           "name": "Productos recomendados",
           "width": "fill_container",
           "height": 420,
           "fill": "#f1f5f2",
           "layout": "vertical",
-          "padding": [48, 72, 64, 72],
           "gap": 28,
+          "padding": [
+            48,
+            72,
+            64,
+            72
+          ],
           "children": [
             {
-              "id": "prod-head",
               "type": "frame",
+              "id": "prod-head",
               "width": "fill_container",
               "height": 80,
               "layout": "vertical",
               "gap": 8,
               "children": [
                 {
-                  "id": "prod-title",
                   "type": "text",
-                  "content": "Productos recomendados",
-                  "fontSize": 32,
-                  "fontWeight": "600",
+                  "id": "prod-title",
                   "fill": "#1b4332",
-                  "textGrowth": "auto"
+                  "content": "Productos recomendados",
+                  "fontFamily": "Inter",
+                  "fontSize": 32,
+                  "fontWeight": "600"
                 },
                 {
-                  "id": "prod-sub",
                   "type": "text",
-                  "content": "Alimentación y cuidado de la selección por nuestros veterinarios.",
-                  "fontSize": 15,
-                  "lineHeight": 1.5,
+                  "id": "prod-sub",
                   "fill": "#4a6356",
                   "textGrowth": "fixed-width",
-                  "width": 720
+                  "width": 720,
+                  "content": "Alimentación y cuidado de la selección por nuestros veterinarios.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
                 }
               ]
             },
             {
-              "id": "prod-row",
               "type": "frame",
+              "id": "prod-row",
               "width": "fill_container",
               "height": 220,
-              "layout": "horizontal",
               "gap": 24,
               "children": [
                 {
+                  "type": "frame",
                   "id": "p1",
-                  "type": "frame",
                   "width": 420,
                   "height": 220,
-                  "cornerRadius": 16,
                   "fill": "#ffffff",
-                  "stroke": { "thickness": 1, "fill": "#d8e8dc" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#d8e8dc"
+                  },
                   "layout": "vertical",
-                  "padding": [20, 20, 20, 20],
                   "gap": 12,
+                  "padding": 20,
                   "children": [
                     {
+                      "type": "text",
                       "id": "p1t",
-                      "type": "text",
+                      "fill": "#1b4332",
                       "content": "Pienso adulto rico en proteína",
+                      "fontFamily": "Inter",
                       "fontSize": 17,
-                      "fontWeight": "600",
-                      "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "fontWeight": "600"
                     },
                     {
+                      "type": "text",
                       "id": "p1d",
-                      "type": "text",
+                      "fill": "#2f5f4f",
                       "content": "desde 42€ / 12kg",
+                      "fontFamily": "Inter",
                       "fontSize": 15,
-                      "fill": "#2f5f4f",
-                      "textGrowth": "auto"
+                      "fontWeight": "normal"
                     }
                   ]
                 },
                 {
+                  "type": "frame",
                   "id": "p2",
-                  "type": "frame",
                   "width": 420,
                   "height": 220,
-                  "cornerRadius": 16,
                   "fill": "#ffffff",
-                  "stroke": { "thickness": 1, "fill": "#d8e8dc" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#d8e8dc"
+                  },
                   "layout": "vertical",
-                  "padding": [20, 20, 20, 20],
                   "gap": 12,
+                  "padding": 20,
                   "children": [
                     {
-                      "id": "p2t",
                       "type": "text",
-                      "content": "Snack dental",
-                      "fontSize": 17,
-                      "fontWeight": "600",
+                      "id": "p2t",
                       "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "content": "Snack dental",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
                     },
                     {
-                      "id": "p2d",
                       "type": "text",
-                      "content": "pack 30 unidades · 18€",
-                      "fontSize": 15,
+                      "id": "p2d",
                       "fill": "#2f5f4f",
-                      "textGrowth": "auto"
+                      "content": "pack 30 unidades · 18€",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
                 {
-                  "id": "p3",
                   "type": "frame",
+                  "id": "p3",
                   "width": 420,
                   "height": 220,
-                  "cornerRadius": 16,
                   "fill": "#ffffff",
-                  "stroke": { "thickness": 1, "fill": "#d8e8dc" },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#d8e8dc"
+                  },
                   "layout": "vertical",
-                  "padding": [20, 20, 20, 20],
                   "gap": 12,
+                  "padding": 20,
                   "children": [
                     {
-                      "id": "p3t",
                       "type": "text",
-                      "content": "Antiparasitario mensual",
-                      "fontSize": 17,
-                      "fontWeight": "600",
+                      "id": "p3t",
                       "fill": "#1b4332",
-                      "textGrowth": "auto"
+                      "content": "Antiparasitario mensual",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
                     },
                     {
-                      "id": "p3d",
                       "type": "text",
-                      "content": "pipetas desde 12€",
-                      "fontSize": 15,
+                      "id": "p3d",
                       "fill": "#2f5f4f",
-                      "textGrowth": "auto"
+                      "content": "pipetas desde 12€",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -527,8 +694,8 @@
           ]
         },
         {
-          "id": "section-footer",
           "type": "frame",
+          "id": "section-footer",
           "name": "Pie",
           "width": "fill_container",
           "height": 100,
@@ -538,12 +705,186 @@
           "alignItems": "center",
           "children": [
             {
-              "id": "footer-t",
               "type": "text",
-              "content": "Clínica veterinaria — diseño guía",
-              "fontSize": 13,
+              "id": "footer-t",
               "fill": "#5a6f62",
-              "textGrowth": "auto"
+              "content": "Clínica veterinaria — diseño guía",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "login-veterinaria",
+      "x": -275,
+      "y": 76,
+      "name": "Login",
+      "width": 1440,
+      "height": 900,
+      "fill": "#f8faf8",
+      "layout": "vertical",
+      "gap": 32,
+      "padding": [
+        48,
+        72
+      ],
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "login-panel",
+          "width": 440,
+          "fill": "#ffffff",
+          "cornerRadius": 20,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#d8e8dc"
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 40,
+          "children": [
+            {
+              "type": "text",
+              "id": "login-title",
+              "fill": "#1b4332",
+              "content": "Iniciar sesión",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "login-subtitle",
+              "fill": "#2f5f4f",
+              "textGrowth": "fixed-width",
+              "width": 360,
+              "content": "Accede con tu correo y contraseña de la clínica.",
+              "lineHeight": 1.5,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "login-field-email",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "login-label-email",
+                  "fill": "#1b4332",
+                  "content": "Correo electrónico",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "login-input-email",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "#f8faf8",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c5d9ce"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "login-placeholder-email",
+                      "fill": "#5a6f62",
+                      "content": "nombre@ejemplo.com",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "login-field-password",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "login-label-password",
+                  "fill": "#1b4332",
+                  "content": "Contraseña",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "login-input-password",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "#f8faf8",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#c5d9ce"
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "login-placeholder-password",
+                      "fill": "#5a6f62",
+                      "content": "••••••••",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "login-submit",
+              "width": "fill_container",
+              "height": 48,
+              "fill": "#2f5f4f",
+              "cornerRadius": 999,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "login-submit-t",
+                  "fill": "#ffffff",
+                  "content": "Entrar",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                }
+              ]
             }
           ]
         }

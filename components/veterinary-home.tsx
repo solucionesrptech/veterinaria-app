@@ -73,8 +73,7 @@ function IconPaw(props: { className?: string }) {
   );
 }
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=2400&q=88";
+const HERO_IMAGE = "/hero-arcadia-vet.jpg";
 
 const services = [
   {
@@ -121,24 +120,30 @@ const featuredProducts = [
     detail: "Dosis según peso real — seguimiento farmacológico incluido.",
     price: "Desde 14 €",
     image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&w=1400&q=85",
     alt: "Perros jugando al aire libre con luz cálida de atardecer",
+    imgPosition: "object-[center_36%]",
+    imgPositionCard: "object-[center_38%]",
   },
   {
     name: "Dermatología y pelaje",
     detail: "Champús clínicos y omega-3 de alta biodisponibilidad.",
     price: "Desde 26 €",
     image:
-      "https://images.unsplash.com/photo-1514888288774-7c38e65c9039?auto=format&fit=crop&w=1200&q=85",
-    alt: "Gato de mirada tranquila en ambiente hogareño",
+      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&w=1400&q=85",
+    alt: "Gato atento en interior hogareño",
+    imgPosition: "object-[center_30%]",
+    imgPositionCard: "object-center",
   },
   {
     name: "Movilidad y articulaciones",
     detail: "Matrices con colágeno y condroitina para senior activo.",
     price: "34 €",
     image:
-      "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&w=1400&q=85",
     alt: "Persona acariciando a un perro con luz natural suave",
+    imgPosition: "object-[center_48%]",
+    imgPositionCard: "object-[center_45%]",
   },
 ] as const;
 
@@ -158,27 +163,28 @@ export function VeterinaryHome() {
         <section className="relative min-h-[100dvh] w-full overflow-hidden" aria-labelledby="hero-title">
           <Image
             src={HERO_IMAGE}
-            alt="Persona y perro en un momento cercano, luz natural cálida"
+            alt="Golden retriever feliz saltando en un parque verde, luz cálida y fondo desenfocado"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[center_45%]"
+            className="object-cover object-[72%_42%] sm:object-[76%_40%] lg:object-[82%_38%]"
           />
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/55 to-stone-900/25"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-stone-900/30"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-stone-950/80 via-stone-950/35 to-transparent"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-950/55 to-stone-950/10 lg:from-stone-950/92 lg:via-stone-950/45 lg:to-transparent"
             aria-hidden
           />
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-950/15 via-transparent to-emerald-950/25"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-950/20 via-transparent to-emerald-950/20"
             aria-hidden
           />
 
           <div className="relative z-10 flex min-h-[100dvh] flex-col justify-end px-5 pb-16 pt-32 sm:px-10 sm:pb-20 lg:px-16 lg:pb-28">
             <div className="mx-auto w-full max-w-6xl">
+              <div className="max-w-xl sm:max-w-2xl lg:max-w-[min(36rem,calc(100%-22rem))]">
               <p className="max-w-xl text-xs font-semibold uppercase tracking-[0.28em] text-emerald-100/90 sm:text-sm">
                 Clínica independiente · Barcelona
               </p>
@@ -206,6 +212,7 @@ export function VeterinaryHome() {
                   Explorar servicios
                 </a>
               </div>
+            </div>
             </div>
           </div>
         </section>
@@ -275,53 +282,81 @@ export function VeterinaryHome() {
               </p>
             </div>
 
-            <ul className="mt-20 grid grid-cols-1 gap-8 lg:mt-28 lg:grid-cols-3 lg:grid-rows-2 lg:gap-10">
+            <ul className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-6 sm:mt-20 sm:gap-7 lg:mt-24 lg:max-w-5xl lg:grid-cols-2 lg:gap-8">
               {featuredProducts.map((item, index) => {
                 const isFeatured = index === 0;
                 return (
                   <li
                     key={item.name}
-                    className={`group flex overflow-hidden rounded-[1.75rem] border border-stone-200/60 bg-white shadow-[0_1px_2px_rgb(28_25_23/0.04),0_20px_40px_rgb(28_25_23/0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_8px_16px_rgb(28_25_23/0.06),0_36px_72px_rgb(28_25_23/0.08)] ${
+                    className={`group flex overflow-hidden rounded-2xl border border-stone-200/60 bg-white shadow-[0_1px_2px_rgb(28_25_23/0.04),0_12px_28px_rgb(28_25_23/0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_14px_rgb(28_25_23/0.06),0_20px_44px_rgb(28_25_23/0.07)] sm:rounded-[1.35rem] ${
                       isFeatured
-                        ? "flex-col lg:col-span-2 lg:row-span-2 lg:min-h-[min(640px,78vh)] lg:flex-row lg:items-stretch"
+                        ? "flex-col lg:col-span-2 lg:h-[280px] lg:min-h-0 lg:flex-row lg:items-stretch lg:overflow-hidden"
                         : "flex-col"
                     }`}
                   >
                     <div
-                      className={`relative overflow-hidden bg-stone-200 ${
+                      className={`relative w-full shrink-0 overflow-hidden bg-stone-300 ${
                         isFeatured
-                          ? "aspect-[4/5] w-full lg:aspect-auto lg:h-auto lg:w-[52%] lg:min-h-full"
-                          : "aspect-[4/5] w-full"
+                          ? "aspect-[16/10] w-full lg:aspect-auto lg:h-full lg:w-[38%] lg:min-h-0"
+                          : "h-[13.75rem] w-full sm:h-[15.25rem] lg:h-[14.5rem] xl:h-[15.25rem]"
                       }`}
                     >
                       <Image
                         src={item.image}
                         alt={item.alt}
                         fill
-                        sizes={isFeatured ? "(max-width: 1024px) 100vw, 55vw" : "(max-width: 1024px) 100vw, 22vw"}
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
-                      />
-                      <div
-                        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/55 via-stone-950/10 to-transparent lg:bg-gradient-to-r lg:from-stone-950/40 lg:via-transparent lg:to-transparent"
-                        aria-hidden
+                        sizes={
+                          isFeatured
+                            ? "(max-width: 1024px) 100vw, 520px"
+                            : "(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 480px"
+                        }
+                        className={`object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] ${
+                          isFeatured ? item.imgPosition : item.imgPositionCard
+                        }`}
                       />
                     </div>
                     <div
-                      className={`flex flex-1 flex-col justify-center px-8 pb-10 pt-9 ${
-                        isFeatured ? "lg:w-[48%] lg:px-10 lg:py-12" : ""
+                      className={`flex flex-col ${
+                        isFeatured
+                          ? "flex-1 justify-center px-5 pb-6 pt-5 sm:px-6 sm:pb-7 sm:pt-6 lg:min-w-0 lg:w-[62%] lg:px-8 lg:py-5"
+                          : "shrink-0 justify-start px-4 pb-4 pt-3 sm:px-5 sm:pb-5 sm:pt-3.5"
                       }`}
                     >
                       {isFeatured ? (
-                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-vet-primary">Destacado</p>
+                        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-vet-primary sm:text-xs">
+                          Destacado
+                        </p>
                       ) : null}
-                      <h3 className="font-display text-2xl font-semibold tracking-tight text-stone-900 lg:text-[1.65rem]">
+                      <h3
+                        className={`font-display font-semibold tracking-tight text-stone-900 ${
+                          isFeatured ? "mt-1 text-xl sm:text-[1.35rem] lg:text-[1.45rem]" : "mt-0 text-base sm:text-lg"
+                        }`}
+                      >
                         {item.name}
                       </h3>
-                      <p className="mt-3 text-base leading-relaxed text-stone-600">{item.detail}</p>
-                      <p className="mt-6 font-display text-2xl font-semibold text-vet-primary">{item.price}</p>
+                      <p
+                        className={`leading-relaxed text-stone-600 ${
+                          isFeatured
+                            ? "mt-2 text-sm sm:text-[0.9375rem]"
+                            : "mt-1.5 text-xs leading-snug sm:text-[0.8125rem]"
+                        }`}
+                      >
+                        {item.detail}
+                      </p>
+                      <p
+                        className={`font-display font-semibold text-vet-primary ${
+                          isFeatured ? "mt-4 text-lg sm:text-xl" : "mt-2 text-base"
+                        }`}
+                      >
+                        {item.price}
+                      </p>
                       <a
                         href="#cita"
-                        className="mt-8 inline-flex w-fit items-center border-b border-vet-primary/40 pb-1 text-sm font-semibold text-vet-primary transition-colors hover:border-vet-primary"
+                        className={`inline-flex w-fit items-center border-b border-vet-primary/40 font-semibold text-vet-primary transition-colors hover:border-vet-primary ${
+                          isFeatured
+                            ? "mt-5 pb-0.5 text-xs sm:text-sm"
+                            : "mt-2.5 pb-0.5 text-[0.7rem] sm:text-xs"
+                        }`}
                       >
                         Pedir asesoramiento
                       </a>
